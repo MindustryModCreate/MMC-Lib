@@ -1,4 +1,4 @@
-[![](https://jitpack.io/v/paulieg626/test-lib.svg)](https://jitpack.io/#paulieg626/test-lib)
+[![](https://jitpack.io/v/MindustryModCreate/MMC-Lib.svg)](https://jitpack.io/#MindustryModCreate/MMC-Lib)
 # MMC Lib Utils
 
 ### Install build.grable
