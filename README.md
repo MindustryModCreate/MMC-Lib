@@ -1,13 +1,15 @@
 [![](https://jitpack.io/v/MindustryModCreate/MMC-Lib.svg)](https://jitpack.io/#MindustryModCreate/MMC-Lib)
 # MMC Lib Utils
 
-### Install build.grable
+### build.grable
 ```
 repositories {
-    maven { url 'https://jitpack.io' }
+  maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-	implementation 'com.github.MindustryModCreate:MMC-Lib:0.02'
+  implementation 'com.github.MindustryModCreate:MMC-Lib:0.02'
 }
 ```
+
+* [MMC profil](https://github.com/MindustryModCreate/MindustryModCreate)
