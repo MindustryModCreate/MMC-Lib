@@ -8,6 +8,6 @@ repositories {
 }
 
 dependencies {
-	implementation 'com.github.MindustryModCreate:MMC-Lib:0.01beta'
+	implementation 'com.github.MindustryModCreate:MMC-Lib:0.02beta'
 }
 ```
