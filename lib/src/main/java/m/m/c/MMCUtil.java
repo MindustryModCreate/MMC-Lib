@@ -10,24 +10,17 @@ public class MMCUtil {
     
 	public static class ColorMMC{
 		
-		public static int parseColorHEX(String hex) {
-			int[]rgb={0,0,0};
-			try{
-				rgb[0]=Integer.valueOf( hex.substring( 1, 3 ), 16 );
-				rgb[1]=Integer.valueOf( hex.substring( 3, 5 ), 16 );
-				rgb[2]=Integer.valueOf( hex.substring( 5, 7 ), 16 );
-			}catch(Exception e){
-				rgb[0]=0;
-				rgb[1]=0;
-				rgb[2]=0;
-			}
-			return Color.rgb(rgb[0],rgb[1],rgb[2]);
+		public static int toHEX(String hex) {
+			int r = Integer.valueOf( hex.substring( 1, 3 ), 16 );
+			int g = Integer.valueOf( hex.substring( 3, 5 ), 16 );
+			int b = Integer.valueOf( hex.substring( 5, 7 ), 16 );
+			return Color.rgb(r,g,b);
 		}
 
-		public static String ToRgb(int argb) {
-			int r = ((argb >> 16) & 0xff);
-			int g = ((argb >> 8) & 0xff);
-			int b = (argb & 0xff);
+		public static String ToRgb(int rgb) {
+			int r = ((rgb >> 16) & 0xff);
+			int g = ((rgb >> 8) & 0xff);
+			int b = (rgb & 0xff);
 			return String.format("#%02X%02X%02X", r, g, b);
 		}
 		
