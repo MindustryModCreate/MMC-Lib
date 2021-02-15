@@ -70,6 +70,7 @@ public class MMCUtil {
 
 	public static void ColorListing(Listing listing){
 		listing.NumberMMC(map.size());
+		listing.MapMMC(map);
 	}
 	
 	/*
