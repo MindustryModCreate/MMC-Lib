@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.MindustryModCreate:MMC-Lib:0.03'
+  implementation 'com.github.MindustryModCreate:MMC-Lib:0.04'
 }
 ```
 
