@@ -17,8 +17,8 @@ dependencies {
 * [./java/m/m/c/MMC.java](https://github.com/MindustryModCreate/MMC-Lib/blob/main/lib/src/main/java/m/m/c/MMC.java)
 * [./java/m/m/c/MMCUtil.java](https://github.com/MindustryModCreate/MMC-Lib/blob/main/lib/src/main/java/m/m/c/MMCUtil.java)
 
-#### `CONTREUTING`
-* [CONTREUTING.md](https://github.com/MindustryModCreate/MMC-Lib/blob/main/CONTREUTING.md)
+#### `CONTRIBUTING`
+* [CONTRIBUTING.md](https://github.com/MindustryModCreate/MMC-Lib/blob/main/CONTRIBUTING.md)
 
 #### Mindustry Mod Create
 * [Profile Mindustry Mod Create](https://github.com/MindustryModCreate/MindustryModCreate)
