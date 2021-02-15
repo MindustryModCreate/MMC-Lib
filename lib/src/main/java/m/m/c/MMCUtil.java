@@ -63,29 +63,19 @@ public class MMCUtil {
 		
 	}
 	
-	public static interface Listing{
+	public static abstract interface Listing{
 		public void NumberMMC(int size);
 		public void MapMMC(HashMap<String,Integer> colors);
 	}
 
 	public static void ColorListing(Listing listing){
+		reset();
 		listing.NumberMMC(map.size());
 		listing.MapMMC(map);
 	}
 	
-	/*
-	 ColorListing(new Listing(){
-	  @Override
-	  public void NumberMMC(int size){}
-
-	  @Override
-	  public void MapMMC(HashMap<String,Integer> colors){}
-	 });
-	*/
-	
 	static{
 		reset();
-		
 	}
 	
 	public static HashMap<String, Integer> getColors(){
