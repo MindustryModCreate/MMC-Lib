@@ -64,28 +64,27 @@ public class MMCUtil {
 	}
 	
 	public static interface Listing{
-		public void NumberMMC(int color);
+		public void NumberMMC(int size);
+		public void MapMMC(HashMap<String,Integer> colors);
 	}
 
-	/// 
-	/// Парсинг цветов из Mindustry
 	public static void ColorListing(Listing listing){
-		for(int i = map.size();i>0;i++){
-			listing.NumberMMC(map.get(i).intValue());
-		}
+		listing.NumberMMC(map.size());
 	}
 	
-	public static void test(){
-		ColorListing(new Listing(){
-			@Override
-			public void NumberMMC(int color){
-				test+=1;
-			}
-		});
-	}
+	/*
+	 ColorListing(new Listing(){
+	  @Override
+	  public void NumberMMC(int size){}
+
+	  @Override
+	  public void MapMMC(HashMap<String,Integer> colors){}
+	 });
+	*/
 	
 	static{
 		reset();
+		
 	}
 	
 	public static HashMap<String, Integer> getColors(){
