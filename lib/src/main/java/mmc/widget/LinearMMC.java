@@ -18,7 +18,7 @@ public class LinearMMC extends LinearLayout {
 	}
 
 	public LinearMMC setDrawable(Drawable background) {
-		setBackground(background);
+		setBackgroundDrawable(background);
 		return this;
 	}
 	
