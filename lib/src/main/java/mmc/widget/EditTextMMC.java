@@ -39,8 +39,9 @@ public class EditTextMMC extends EditText {
 	private Rect mRect,lineBounds;
     private Paint mPaint,highlightPaint;
 	public String i,h;
-	private static final int HIGHLIGHTER_YELLOW = 0x01f3f304,lineNumber;
-	public static float size = 0;
+	private int HIGHLIGHTER_YELLOW = 0x01f3f304;
+    private int lineNumber;
+	public float size = 0;
 	private boolean is = false,draw = true;
 	
     public EditTextMMC(Context context, AttributeSet attrs) {
