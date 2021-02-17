@@ -3,90 +3,80 @@ import android.graphics.Color;
 import java.util.HashMap;
 
 public class MMCUtil {
-	
-    private static final HashMap<String, Integer> map = new HashMap<>();
-	public static int test = 0;
-	
-	public static class Colors{
-		
-		public static int toHEX(String hex) {
-			int r = Integer.valueOf( hex.substring( 1, 3 ), 16 );
-			int g = Integer.valueOf( hex.substring( 3, 5 ), 16 );
-			int b = Integer.valueOf( hex.substring( 5, 7 ), 16 );
-			return Color.rgb(r,g,b);
-		}
 
-		public static String toRGB(int rgb) {
-			int r = ((rgb >> 16) & 0xff);
-			int g = ((rgb >> 8) & 0xff);
-			int b = (rgb & 0xff);
-			return String.format("#%02X%02X%02X", r, g, b);
-		}
+    private static final HashMap<String, Integer> map = new HashMap<String,Integer>();
 
-		/// Colors of Mindustry
-		/// Цвета из Mindustry
-		public static final int white = m.m.c.MMC.toHEX("#ffffff");
-		public static final int lightGray = m.m.c.MMC.toHEX("#bfbfbf");
-		public static final int gray = m.m.c.MMC.toHEX("#7f7f7f");
-		public static final int darkGray = m.m.c.MMC.toHEX("#3f3f3f");
-		public static final int black = m.m.c.MMC.toHEX("#000000");
-		public static final int clear = m.m.c.MMC.toHEX("#00000000");
-		public static final int blue = m.m.c.MMC.toHEX("#0000ff");
-		public static final int navy = m.m.c.MMC.toHEX("#00007E");
-		public static final int royal = m.m.c.MMC.toHEX("#4169e1");
-		public static final int slate = m.m.c.MMC.toHEX("#708090");
-		public static final int sky = m.m.c.MMC.toHEX("#87ceeb");
-		public static final int cyan = m.m.c.MMC.toHEX("#00ffff");
-		public static final int teal = m.m.c.MMC.toHEX("#007E7E");
-		public static final int green = m.m.c.MMC.toHEX("#00ff00");
-		public static final int acid = m.m.c.MMC.toHEX("#7fff00");
-		public static final int lime = m.m.c.MMC.toHEX("#32cd32");
-		public static final int forest = m.m.c.MMC.toHEX("#228b22");
-		public static final int olive = m.m.c.MMC.toHEX("#6b8e23");
-		public static final int yellow = m.m.c.MMC.toHEX("#ffff00");
-		public static final int gold = m.m.c.MMC.toHEX("#ffd700");
-		public static final int goldenrod = m.m.c.MMC.toHEX("#daa520");
-		public static final int orange = m.m.c.MMC.toHEX("#ffa500");
-		public static final int brown = m.m.c.MMC.toHEX("#8b4513");
-		public static final int tan = m.m.c.MMC.toHEX("#d2b48c");
-		public static final int brick = m.m.c.MMC.toHEX("#b22222");
-		public static final int red = m.m.c.MMC.toHEX("#ff0000");
-		public static final int scarlet = m.m.c.MMC.toHEX("#ff341c");
-		public static final int crimson = m.m.c.MMC.toHEX("#dc143c");
-		public static final int coral = m.m.c.MMC.toHEX("#ff7f50");
-		public static final int salmon = m.m.c.MMC.toHEX("fa8072");
-		public static final int pink = m.m.c.MMC.toHEX("#ff69b4");
-		public static final int magenta = m.m.c.MMC.toHEX("#ff00ff");
-		public static final int purple = m.m.c.MMC.toHEX("#a020f0");
-		public static final int violet = m.m.c.MMC.toHEX("#ee82ee");
-		public static final int maroon = m.m.c.MMC.toHEX("#b03060");
-		
-	}
-	
-	public static abstract interface Listing{
-		public void NumberMMC(int size);
-		public void MapMMC(HashMap<String,Integer> colors);
-	}
+    public static int test = 0;
 
-	public static void ColorListing(Listing listing){
-		reset();
-		listing.NumberMMC(map.size());
-		listing.MapMMC(map);
-	}
-	
-	static{
-		reset();
-	}
-	
-	public static HashMap<String, Integer> getColors(){
+    public static class Colors{
+
+        public static int toHEX(String hex) {
+            int r = Integer.valueOf( hex.substring( 1, 3 ), 16 );
+            int g = Integer.valueOf( hex.substring( 3, 5 ), 16 );
+            int b = Integer.valueOf( hex.substring( 5, 7 ), 16 );
+            return Color.rgb(r,g,b);
+        }
+
+        public static String toRGB(int rgb) {
+            int r = ((rgb >> 16) & 0xff);
+            int g = ((rgb >> 8) & 0xff);
+            int b = (rgb & 0xff);
+            return String.format("#%02X%02X%02X", r, g, b);
+        }
+
+        /// Colors of Mindustry
+        /// Цвета из Mindustry
+        public static final int white = m.m.c.MMC.toHEX("#ffffff");
+        public static final int lightGray = m.m.c.MMC.toHEX("#bfbfbf");
+        public static final int gray = m.m.c.MMC.toHEX("#7f7f7f");
+        public static final int darkGray = m.m.c.MMC.toHEX("#3f3f3f");
+        public static final int black = m.m.c.MMC.toHEX("#000000");
+        public static final int clear = m.m.c.MMC.toHEX("#00000000");
+        public static final int blue = m.m.c.MMC.toHEX("#0000ff");
+        public static final int navy = m.m.c.MMC.toHEX("#00007E");
+        public static final int royal = m.m.c.MMC.toHEX("#4169e1");
+        public static final int slate = m.m.c.MMC.toHEX("#708090");
+        public static final int sky = m.m.c.MMC.toHEX("#87ceeb");
+        public static final int cyan = m.m.c.MMC.toHEX("#00ffff");
+        public static final int teal = m.m.c.MMC.toHEX("#007E7E");
+        public static final int green = m.m.c.MMC.toHEX("#00ff00");
+        public static final int acid = m.m.c.MMC.toHEX("#7fff00");
+        public static final int lime = m.m.c.MMC.toHEX("#32cd32");
+        public static final int forest = m.m.c.MMC.toHEX("#228b22");
+        public static final int olive = m.m.c.MMC.toHEX("#6b8e23");
+        public static final int yellow = m.m.c.MMC.toHEX("#ffff00");
+        public static final int gold = m.m.c.MMC.toHEX("#ffd700");
+        public static final int goldenrod = m.m.c.MMC.toHEX("#daa520");
+        public static final int orange = m.m.c.MMC.toHEX("#ffa500");
+        public static final int brown = m.m.c.MMC.toHEX("#8b4513");
+        public static final int tan = m.m.c.MMC.toHEX("#d2b48c");
+        public static final int brick = m.m.c.MMC.toHEX("#b22222");
+        public static final int red = m.m.c.MMC.toHEX("#ff0000");
+        public static final int scarlet = m.m.c.MMC.toHEX("#ff341c");
+        public static final int crimson = m.m.c.MMC.toHEX("#dc143c");
+        public static final int coral = m.m.c.MMC.toHEX("#ff7f50");
+        public static final int salmon = m.m.c.MMC.toHEX("fa8072");
+        public static final int pink = m.m.c.MMC.toHEX("#ff69b4");
+        public static final int magenta = m.m.c.MMC.toHEX("#ff00ff");
+        public static final int purple = m.m.c.MMC.toHEX("#a020f0");
+        public static final int violet = m.m.c.MMC.toHEX("#ee82ee");
+        public static final int maroon = m.m.c.MMC.toHEX("#b03060");
+
+    }
+
+    static{
+        reset();
+    }
+
+    public static HashMap<String, Integer> getColors(){
         return map;
     }
 
     public static int get(String name){
         return map.get(name);
     }
-	
-	public static void reset(){
+
+    public static void reset(){
         map.clear();
         map.put("CLEAR", Colors.clear);
         map.put("BLACK", Colors.black);
@@ -159,5 +149,5 @@ public class MMCUtil {
         map.put("violet", Colors.violet);
         map.put("maroon", Colors.maroon);
     }
-	
+
 }
