@@ -6,17 +6,22 @@ public class MMCUtil {
 
     private static final HashMap<String, Integer> map = new HashMap<String,Integer>();
 
-    public static int test = 0;
-
     public static class Colors{
 
         public static int toHEX(String hex) {
-            int r = Integer.valueOf( hex.substring( 1, 3 ), 16 );
-            int g = Integer.valueOf( hex.substring( 3, 5 ), 16 );
-            int b = Integer.valueOf( hex.substring( 5, 7 ), 16 );
-            return Color.rgb(r,g,b);
-        }
-
+            int[]rgb={0,0,0};
+            try{
+                rgb[0]=Integer.valueOf( hex.substring( 1, 3 ), 16 );
+                rgb[1]=Integer.valueOf( hex.substring( 3, 5 ), 16 );
+                rgb[2]=Integer.valueOf( hex.substring( 5, 7 ), 16 );
+            }catch(Exception e){
+                rgb[0]=0;
+                rgb[1]=0;
+                rgb[2]=0;
+            }
+            return Color.rgb(rgb[0],rgb[1],rgb[2]);
+		}
+        
         public static String toRGB(int rgb) {
             int r = ((rgb >> 16) & 0xff);
             int g = ((rgb >> 8) & 0xff);
