@@ -100,8 +100,7 @@ public class EditTextSelect extends EditText {
                             removeSpans(s, BackgroundSpanMMC.class);
                             if(bracket_visible1){
                                 if(text.length()!=0&&getSelectionStart()!=text.length()){
-                                    int p=getSelectionStart()-1;
-                                    s.setSpan(new CursorSpanMMC(),p,p+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new CursorSpanMMC(),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 }
                             }
                             if(bracket_visible2){

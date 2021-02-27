@@ -59,11 +59,11 @@ public class MainActivity extends Activity {
         edit.addSelect(new EditTextSelect.onSelectListing(){
             @Override
             public void getSelect(int start,int end, String text){
-                version.setText(String.valueOf(start));
+                
             }
             @Override
             public void getTextOne(String t1, String t2){
-                b1.setText(t1+"\n"+t2);
+                b1.setText(edit.getSelectionStart()+"\n"+t1+"\n"+t2);
             }
             @Override
             public void getBracket(int l, int position, int r,String regex){
