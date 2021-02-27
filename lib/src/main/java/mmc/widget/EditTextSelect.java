@@ -72,10 +72,10 @@ public class EditTextSelect extends EditText {
                         }
                         on.getSelect(getSelectionStart(),getSelectionEnd(),text);
                         on.getTextOne(t1,t2);
-                        String[]bracket = {"()","{}","[]"};
+                        String bracket = "";
                         int left = -1;
                         int right = -1;
-
+                        
                         try{
 
                             if(t1.matches(Launges.Bracket)){
@@ -105,29 +105,38 @@ public class EditTextSelect extends EditText {
                                 }
                             }
                             if(bracket_visible2){
+                                int pos = getSelectionStart();
                                 if(getSelectionStart()==text.length()){
                                     if(right!=-1&&Character.toString(s.toString().charAt(getSelectionStart()-1)).matches(Launges.Bracket2)){ // ) < на конце
                                         s.setSpan(new BackgroundSpanMMC(),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                         s.setSpan(new BackgroundSpanMMC(),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                        pos--;
+                                        bracket = getBracket(Character.toString(text.charAt(pos)));
                                     }
                                 }else if(right!=-1&&Character.toString(s.toString().charAt(getSelectionStart()-1)).matches(Launges.Bracket2)){ // )<
                                     s.setSpan(new BackgroundSpanMMC(),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     s.setSpan(new BackgroundSpanMMC(),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    pos--;
+                                    bracket = getBracket(Character.toString(text.charAt(pos)));
                                 }else if(right!=-1&&Character.toString(s.toString().charAt(getSelectionStart())).matches(Launges.Bracket2)){ // >)
                                     s.setSpan(new BackgroundSpanMMC(),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     s.setSpan(new BackgroundSpanMMC(),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    bracket = getBracket(Character.toString(text.charAt(pos)));
                                 }else if(getSelectionStart()!=0&&left!=-1&&Character.toString(s.toString().charAt(getSelectionStart()-1)).matches(Launges.Bracket1)){ // (<
                                     s.setSpan(new BackgroundSpanMMC(),getSelectionStart()+left,getSelectionStart()+left+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     s.setSpan(new BackgroundSpanMMC(),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    pos--;
+                                    bracket = getBracket(Character.toString(text.charAt(pos)));
                                 }else if(left!=-1&&Character.toString(s.toString().charAt(getSelectionStart())).matches(Launges.Bracket1)){ // >(
                                     s.setSpan(new BackgroundSpanMMC(),getSelectionStart()+left,getSelectionStart()+left+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     s.setSpan(new BackgroundSpanMMC(),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    bracket = getBracket(Character.toString(text.charAt(pos)));
                                 }
                             }
                         }catch(Exception e){
                             error=(e.toString());
                         }
-                        on.getBracket(left, getSelectionStart() ,right, bracket[0]);
+                        on.getBracket(left, getSelectionStart() ,right, bracket);
                         on.getErrors(error);
                     }
                 }
@@ -151,7 +160,24 @@ public class EditTextSelect extends EditText {
                 return -1;
         }
     }
-
+    String getBracket(String i){
+        switch(i){
+            case "(":
+                return "()";
+            case "[":
+                return "[]";
+            case "{":
+                return "{}";
+            case ")":
+                return "()";
+            case "]":
+                return "[]";
+            case "}":
+                return "{}";
+            default:
+                return null;
+        }
+    }
     void removeSpans(Editable e, Class<? extends CharacterStyle> type) {
         CharacterStyle[] spans = e.getSpans(0, e.length(), type);
         for (CharacterStyle span : spans) {

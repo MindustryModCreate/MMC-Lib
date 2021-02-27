@@ -67,7 +67,7 @@ public class MainActivity extends Activity {
             }
             @Override
             public void getBracket(int l, int position, int r,String regex){
-                b2.setText(String.valueOf(l+":"+r));
+                b2.setText(String.valueOf(l+":"+r)+"\n"+regex);
             }
             @Override
             public void getErrors(String error){
