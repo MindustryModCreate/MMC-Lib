@@ -1,4 +1,4 @@
-package m.m.c;
+package mmc;
 import java.util.HashMap;
 import android.app.Dialog;
 import android.content.Context;

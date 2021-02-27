@@ -1,6 +1,7 @@
-package m.m.c;
+package mmc;
 import android.graphics.Color;
 import java.util.HashMap;
+import mmc.*;
 
 public class MMCUtil {
 
@@ -43,41 +44,41 @@ public class MMCUtil {
 
         /// Colors of Mindustry
         /// Цвета из Mindustry
-        public static final int white = m.m.c.MMC.toColor("#ffffff");
-        public static final int lightGray = m.m.c.MMC.toColor("#bfbfbf");
-        public static final int gray = m.m.c.MMC.toColor("#7f7f7f");
-        public static final int darkGray = m.m.c.MMC.toColor("#3f3f3f");
-        public static final int black = m.m.c.MMC.toColor("#000000");
-        public static final int clear = m.m.c.MMC.toColor("#00000000");
-        public static final int blue = m.m.c.MMC.toColor("#0000ff");
-        public static final int navy = m.m.c.MMC.toColor("#00007E");
-        public static final int royal = m.m.c.MMC.toColor("#4169e1");
-        public static final int slate = m.m.c.MMC.toColor("#708090");
-        public static final int sky = m.m.c.MMC.toColor("#87ceeb");
-        public static final int cyan = m.m.c.MMC.toColor("#00ffff");
-        public static final int teal = m.m.c.MMC.toColor("#007E7E");
-        public static final int green = m.m.c.MMC.toColor("#00ff00");
-        public static final int acid = m.m.c.MMC.toColor("#7fff00");
-        public static final int lime = m.m.c.MMC.toColor("#32cd32");
-        public static final int forest = m.m.c.MMC.toColor("#228b22");
-        public static final int olive = m.m.c.MMC.toColor("#6b8e23");
-        public static final int yellow = m.m.c.MMC.toColor("#ffff00");
-        public static final int gold = m.m.c.MMC.toColor("#ffd700");
-        public static final int goldenrod = m.m.c.MMC.toColor("#daa520");
-        public static final int orange = m.m.c.MMC.toColor("#ffa500");
-        public static final int brown = m.m.c.MMC.toColor("#8b4513");
-        public static final int tan = m.m.c.MMC.toColor("#d2b48c");
-        public static final int brick = m.m.c.MMC.toColor("#b22222");
-        public static final int red = m.m.c.MMC.toColor("#ff0000");
-        public static final int scarlet = m.m.c.MMC.toColor("#ff341c");
-        public static final int crimson = m.m.c.MMC.toColor("#dc143c");
-        public static final int coral = m.m.c.MMC.toColor("#ff7f50");
-        public static final int salmon = m.m.c.MMC.toColor("fa8072");
-        public static final int pink = m.m.c.MMC.toColor("#ff69b4");
-        public static final int magenta = m.m.c.MMC.toColor("#ff00ff");
-        public static final int purple = m.m.c.MMC.toColor("#a020f0");
-        public static final int violet = m.m.c.MMC.toColor("#ee82ee");
-        public static final int maroon = m.m.c.MMC.toColor("#b03060");
+        public static final int white = mmc.MMC.toColor("#ffffff");
+        public static final int lightGray = mmc.MMC.toColor("#bfbfbf");
+        public static final int gray = mmc.MMC.toColor("#7f7f7f");
+        public static final int darkGray = mmc.MMC.toColor("#3f3f3f");
+        public static final int black = mmc.MMC.toColor("#000000");
+        public static final int clear = mmc.MMC.toColor("#00000000");
+        public static final int blue = mmc.MMC.toColor("#0000ff");
+        public static final int navy = mmc.MMC.toColor("#00007E");
+        public static final int royal = mmc.MMC.toColor("#4169e1");
+        public static final int slate = mmc.MMC.toColor("#708090");
+        public static final int sky = mmc.MMC.toColor("#87ceeb");
+        public static final int cyan = mmc.MMC.toColor("#00ffff");
+        public static final int teal = mmc.MMC.toColor("#007E7E");
+        public static final int green = mmc.MMC.toColor("#00ff00");
+        public static final int acid = mmc.MMC.toColor("#7fff00");
+        public static final int lime = mmc.MMC.toColor("#32cd32");
+        public static final int forest = mmc.MMC.toColor("#228b22");
+        public static final int olive = mmc.MMC.toColor("#6b8e23");
+        public static final int yellow = mmc.MMC.toColor("#ffff00");
+        public static final int gold = mmc.MMC.toColor("#ffd700");
+        public static final int goldenrod = mmc.MMC.toColor("#daa520");
+        public static final int orange = mmc.MMC.toColor("#ffa500");
+        public static final int brown = mmc.MMC.toColor("#8b4513");
+        public static final int tan = mmc.MMC.toColor("#d2b48c");
+        public static final int brick = mmc.MMC.toColor("#b22222");
+        public static final int red = mmc.MMC.toColor("#ff0000");
+        public static final int scarlet = mmc.MMC.toColor("#ff341c");
+        public static final int crimson = mmc.MMC.toColor("#dc143c");
+        public static final int coral = mmc.MMC.toColor("#ff7f50");
+        public static final int salmon = mmc.MMC.toColor("fa8072");
+        public static final int pink = mmc.MMC.toColor("#ff69b4");
+        public static final int magenta = mmc.MMC.toColor("#ff00ff");
+        public static final int purple = mmc.MMC.toColor("#a020f0");
+        public static final int violet = mmc.MMC.toColor("#ee82ee");
+        public static final int maroon = mmc.MMC.toColor("#b03060");
 
     }
 

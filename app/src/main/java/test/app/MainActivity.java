@@ -5,41 +5,74 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.view.View;
-import m.m.c.MMC;
-import m.m.c.MMCUtil;
 import android.widget.TextView;
+import android.widget.EditText;
+import android.text.TextWatcher;
+import android.text.Editable;
+import android.text.Selection;
+import android.text.InputType;
+import android.database.Cursor;
+import android.content.Context;
+import android.widget.LinearLayout;
+import android.view.accessibility.AccessibilityEvent;
+import java.util.regex.Pattern;
+import android.graphics.Color;
+import android.text.style.CharacterStyle;
+import java.util.regex.Matcher;
+import android.text.style.BackgroundColorSpan;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import mmc.*;
+import mmc.widget.*;
 
-public class MainActivity extends Activity { 
-     
+public class MainActivity extends Activity {
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final TextView version = (TextView)findViewById(R.id.version);
-        
         final TextView b1 = (TextView)findViewById(R.id.b1);
         final TextView b2 = (TextView)findViewById(R.id.b2);
-        
+        final EditTextMMC edit = findViewById(R.id.edit);
+        this.setTitle("MMC TESTING");
         version.setText(MMC.version+"v");
         
         // Test
         b1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View p1){
-                b1.setText("MMCUtil.Colors.toHEX(\"#990000\"): "+String.valueOf(MMC.toColor("#990000"))+"\nMMCUtil.Colors.toRGB(0X990000): "+MMC.toColor(0X990000)+"\nMMCUtil.Colors.toRGB(-6750208): "+MMC.toColor(-6750208));
+                edit.setBracket(true,true);
             }
         });
         
         b2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View p1){
-                MMCUtil.toColor("#009900");
-                MMCUtil.toColor(-88399393);
-                MMCUtil.toColor(0xff0000);
-                b2.setTextColor(MMC.toColor("#ff0000")+MMC.toColor("#0000ff"));
-                int i = Integer.MAX_VALUE;
+                edit.setBracket(false,false);
+            }
+        });
+        
+        edit.setSelection(0);
+        edit.setText("[..{..(0123456789)...(...(...)(...)...)..}..]");
+        
+        edit.addSelect(new EditTextSelect.onSelectListing(){
+            @Override
+            public void getSelect(int start,int end, String text){
+                version.setText(String.valueOf(start));
+            }
+            @Override
+            public void getTextOne(String t1, String t2){
+                b1.setText(t1+"\n"+t2);
+            }
+            @Override
+            public void getBracket(int l, int position, int r,String regex){
+                b2.setText(String.valueOf(l+":"+r));
+            }
+            @Override
+            public void getErrors(String error){
+                ((TextView)findViewById(R.id.error)).setText(error);
             }
         });
     }
-	
 } 

@@ -10,13 +10,9 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.MindustryModCreate:MMC-Lib:0.10'
+  implementation 'com.github.MindustryModCreate:MMC-Lib:0.11'
 }
 ```
-
-#### Files
-* [./java/m/m/c/MMC.java](https://github.com/MindustryModCreate/MMC-Lib/blob/main/lib/src/main/java/m/m/c/MMC.java)
-* [./java/m/m/c/MMCUtil.java](https://github.com/MindustryModCreate/MMC-Lib/blob/main/lib/src/main/java/m/m/c/MMCUtil.java)
 
 #### CONTRIBUTING
 * [CONTRIBUTING.md](https://github.com/MindustryModCreate/MMC-Lib/blob/main/CONTRIBUTING.md)

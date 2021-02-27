@@ -28,9 +28,13 @@ import android.view.textservice.SpellCheckerSubtype;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.text.TextPaint;
-import m.m.c.*;
+import mmc.*;
+import java.util.*;
+import android.view.accessibility.AccessibilityEvent;
+import android.text.style.BackgroundColorSpan;
 
-public class EditTextMMC extends EditText {
+public class EditTextMMC extends EditTextSelect {
+    
 	public int e = 0;
 	public int s = 1;
 	
@@ -44,6 +48,16 @@ public class EditTextMMC extends EditText {
 	public float size = 0;
 	private boolean is = false,draw = true;
 	
+    public interface onSelectListing{
+        public void getSelect(int start, int end, String text);
+        public void getTextOne(String t1,String t2);
+        public void getBracket(int left, int position, int right, String regex);
+        public void getErrors(String error);
+    }
+    
+    public EditTextMMC(Context context) {
+        super(context);
+    }
     public EditTextMMC(Context context, AttributeSet attrs) {
         super(context, attrs);
         mRect = new Rect();
@@ -63,6 +77,7 @@ public class EditTextMMC extends EditText {
 			}
 		});
     }
+    
 	@Override
     public void addTextChangedListener(TextWatcher watcher){       
         if (mListeners == null){
@@ -185,7 +200,7 @@ public class EditTextMMC extends EditText {
         for (int i = 0; i < count; i++) {
             int baseline = getLineBounds(i, r);
 			if(draw){
-				canvas.drawText(String.valueOf(i+1),7, baseline + 1, paint);
+				canvas.drawText(String.valueOf(i+1),2, baseline + 1, paint);
 			}
 			canvas.drawLine(r.left, baseline + 1, r.right, baseline + 1, paint2);
         }
