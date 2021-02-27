@@ -16,7 +16,8 @@ import android.text.style.CharacterStyle;
 import java.util.regex.Pattern;
 import android.graphics.Canvas;
 import android.text.Spanned;
-import mmc.*;
+import mmc.lib.*;
+import mmc.span.*;
 
 public class EditTextSelect extends EditText {
     private boolean

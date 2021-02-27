@@ -1,4 +1,4 @@
-package mmc.widget;
+package mmc.lib;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;

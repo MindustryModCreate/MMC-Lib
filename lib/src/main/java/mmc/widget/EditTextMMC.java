@@ -28,10 +28,10 @@ import android.view.textservice.SpellCheckerSubtype;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.text.TextPaint;
-import mmc.*;
 import java.util.*;
 import android.view.accessibility.AccessibilityEvent;
 import android.text.style.BackgroundColorSpan;
+import mmc.lib.*;
 
 public class EditTextMMC extends EditTextSelect {
     

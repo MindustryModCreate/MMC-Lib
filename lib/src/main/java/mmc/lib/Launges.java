@@ -1,4 +1,4 @@
-package mmc;
+package mmc.lib;
 
 public class Launges{
 	//Regex - Регекс

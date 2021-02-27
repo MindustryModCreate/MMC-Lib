@@ -22,7 +22,7 @@ import java.util.regex.Matcher;
 import android.text.style.BackgroundColorSpan;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
-import mmc.*;
+import mmc.lib.*;
 import mmc.widget.*;
 
 public class MainActivity extends Activity {
