@@ -24,6 +24,7 @@ import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import mmc.lib.*;
 import mmc.widget.*;
+import android.text.style.ImageSpan;
 
 public class MainActivity extends Activity {
     
@@ -56,7 +57,8 @@ public class MainActivity extends Activity {
         edit.setSelection(0);
         edit.setText("[..{..(0123456789)...(...(...)(...)...)..}..]");
         
-        edit.addSelect(new EditTextSelect.onSelectListing(){
+        
+        edit.addOnSelecting(new EditTextSelect.onSelectListing(){
             @Override
             public void getSelect(int start,int end, String text){
                 

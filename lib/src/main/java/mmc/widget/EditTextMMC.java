@@ -35,17 +35,14 @@ import mmc.lib.*;
 
 public class EditTextMMC extends EditTextSelect {
     
-	public int e = 0;
-	public int s = 1;
+	public int e = 0,s = 1;
 	
 	private ArrayList<TextWatcher> mListeners = null;
-	private String launges = "";
+	private String launges = "",h;
 	private Rect mRect,lineBounds;
     private Paint mPaint,highlightPaint;
-	public String i,h;
-	private int HIGHLIGHTER_YELLOW = 0x01f3f304;
-    private int lineNumber;
-	public float size = 0;
+	private int HIGHLIGHTER_YELLOW = 0x01f3f304,lineNumber;
+    public float size = 0;
 	private boolean is = false,draw = true;
 	
     public interface onSelectListing{

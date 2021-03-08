@@ -25,8 +25,6 @@ public class TextViewMMC extends TextView{
 	public TextViewMMC(Context context) {
         super(context);
 		this.ctx = context;
-		setGravity(Gravity.CENTER);
-		setPadding(8,8,8,8);
 		mRect = new Rect();
         highlightPaint = new Paint();
         highlightPaint.setColor(0x01f3f304);
@@ -35,8 +33,6 @@ public class TextViewMMC extends TextView{
 	public TextViewMMC(Context context, AttributeSet attrs) {
         super(context, attrs);
 		this.ctx = context;
-		setGravity(Gravity.CENTER);
-		setPadding(8,8,8,8);
 		mRect = new Rect();
         highlightPaint = new Paint();
         highlightPaint.setColor(0x01f3f304);

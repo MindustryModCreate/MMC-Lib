@@ -18,21 +18,23 @@ import android.graphics.Canvas;
 import android.text.Spanned;
 import mmc.lib.*;
 import mmc.span.*;
+import android.text.style.ImageSpan;
+import android.text.Spannable;
+import android.graphics.drawable.Drawable;
+import android.graphics.PorterDuff;
 
 public class EditTextSelect extends EditText {
     private boolean
     bracket_visible1 = true,
     bracket_visible2 = true;
+    
     private String
     t1 = "",
     t2 = "",
     text = "",
     error = "";
-
-    public int e = 0;
-    public int s = 1;
-    public float size = 0;
     
+    private ArrayList<onSelectListing> mSelecting = null;
     
     public void setBracket(boolean b1,boolean b2){
         bracket_visible1 = b1;
@@ -52,8 +54,31 @@ public class EditTextSelect extends EditText {
     public EditTextSelect(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
-
-    public void addSelect(final onSelectListing on){
+    
+    public void removeSelecting(onSelectListing select){
+        if (mSelecting != null){
+            int i = mSelecting.indexOf(select);
+            if (i >= 0){
+                mSelecting.remove(i);
+            }
+        }
+    }
+    
+    public void clearSelecting(){
+        if(mSelecting != null){
+            for(onSelectListing select : mSelecting){
+                removeSelecting(select);
+            }
+            mSelecting.clear();
+            mSelecting = null;
+        }
+    }
+    
+    public void addOnSelecting(final onSelectListing onSelecting){
+        if (mSelecting == null){
+            mSelecting = new ArrayList<onSelectListing>();
+        }
+        mSelecting.add(onSelecting);
         setAccessibilityDelegate(new View.AccessibilityDelegate(){
                 @Override
                 public void sendAccessibilityEvent(View host, int eventType) {
@@ -70,8 +95,8 @@ public class EditTextSelect extends EditText {
                         }else{
                             t2 = " ";
                         }
-                        on.getSelect(getSelectionStart(),getSelectionEnd(),text);
-                        on.getTextOne(t1,t2);
+                        onSelecting.getSelect(getSelectionStart(),getSelectionEnd(),text);
+                        onSelecting.getTextOne(t1,t2);
                         String bracket = "";
                         int left = -1;
                         int right = -1;
@@ -136,13 +161,13 @@ public class EditTextSelect extends EditText {
                         }catch(Exception e){
                             error=(e.toString());
                         }
-                        on.getBracket(left, getSelectionStart() ,right, bracket);
-                        on.getErrors(error);
+                        onSelecting.getBracket(left, getSelectionStart() ,right, bracket);
+                        onSelecting.getErrors(error);
                     }
                 }
             });
     }
-    int checkBracket(String i,int level){
+    private int checkBracket(String i,int level){
         switch(i){
             case "(":
                 return Launges.findClosingBracket(text.substring(getSelectionStart(),text.length()),"()",level);
@@ -160,7 +185,7 @@ public class EditTextSelect extends EditText {
                 return -1;
         }
     }
-    String getBracket(String i){
+    private String getBracket(String i){
         switch(i){
             case "(":
                 return "()";
@@ -178,13 +203,14 @@ public class EditTextSelect extends EditText {
                 return null;
         }
     }
-    void removeSpans(Editable e, Class<? extends CharacterStyle> type) {
+    
+    private void removeSpans(Editable e, Class<? extends CharacterStyle> type) {
         CharacterStyle[] spans = e.getSpans(0, e.length(), type);
         for (CharacterStyle span : spans) {
             e.removeSpan(span);
         }
     }
-    class ColorScheme {
+    private class ColorScheme {
         final Pattern pattern;
         final int color;
         ColorScheme(Pattern pattern, int color) {
