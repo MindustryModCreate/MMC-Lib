@@ -16,7 +16,7 @@ public class BackgroundSpanMMC extends ReplacementSpan {
         //super();
         this.backgroundColor = background;
         this.textColor = text;
-        this.size = size/2/2;
+        this.size = size/10;
     }
 
     @Override

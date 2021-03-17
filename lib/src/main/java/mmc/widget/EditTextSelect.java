@@ -144,14 +144,14 @@ public class EditTextSelect extends EditText {
                                     s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     pos--;
                                     bracket = getBracket(Character.toString(text.charAt(pos)));
-                                }else if(right!=-1&&Character.toString(s.toString().charAt(getSelectionStart())).matches(Launges.Bracket2)){ // >)
-                                    s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    bracket = getBracket(Character.toString(text.charAt(pos)));
                                 }else if(getSelectionStart()!=0&&left!=-1&&Character.toString(s.toString().charAt(getSelectionStart()-1)).matches(Launges.Bracket1)){ // (<
                                     s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart()+left,getSelectionStart()+left+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     pos--;
+                                    bracket = getBracket(Character.toString(text.charAt(pos)));
+                                }else if(right!=-1&&Character.toString(s.toString().charAt(getSelectionStart())).matches(Launges.Bracket2)){ // >)
+                                    s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     bracket = getBracket(Character.toString(text.charAt(pos)));
                                 }else if(left!=-1&&Character.toString(s.toString().charAt(getSelectionStart())).matches(Launges.Bracket1)){ // >(
                                     s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart()+left,getSelectionStart()+left+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
