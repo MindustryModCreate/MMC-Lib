@@ -12,10 +12,10 @@ public class BackgroundSpanMMC extends ReplacementSpan {
     private int backgroundColor = 0;
     private int textColor = 0;
 
-    public BackgroundSpanMMC() {
+    public BackgroundSpanMMC(int text) {
         //super();
         backgroundColor = Color.GRAY;
-        textColor = Color.BLACK;
+        textColor = text;
     }
 
     @Override

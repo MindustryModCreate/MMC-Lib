@@ -28,6 +28,8 @@ public class EditTextSelect extends EditText {
     bracket_visible1 = true,
     bracket_visible2 = true;
     
+    private int color = 0xff000000;
+    
     private String
     t1 = "",
     t2 = "",
@@ -35,6 +37,12 @@ public class EditTextSelect extends EditText {
     error = "";
     
     private ArrayList<onSelectListing> mSelecting = null;
+
+    @Override
+    public void setTextColor(int color){
+        this.color = color;
+        super.setTextColor(color);
+    }
     
     public void setBracket(boolean b1,boolean b2){
         bracket_visible1 = b1;
@@ -126,35 +134,35 @@ public class EditTextSelect extends EditText {
                             removeSpans(s, BackgroundSpanMMC.class);
                             if(bracket_visible1){
                                 if(text.length()!=0&&getSelectionStart()!=text.length()){
-                                    s.setSpan(new CursorSpanMMC(),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new CursorSpanMMC(color),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 }
                             }
                             if(bracket_visible2){
                                 int pos = getSelectionStart();
                                 if(getSelectionStart()==text.length()){
                                     if(right!=-1&&Character.toString(s.toString().charAt(getSelectionStart()-1)).matches(Launges.Bracket2)){ // ) < на конце
-                                        s.setSpan(new BackgroundSpanMMC(),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                        s.setSpan(new BackgroundSpanMMC(),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                        s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                        s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                         pos--;
                                         bracket = getBracket(Character.toString(text.charAt(pos)));
                                     }
                                 }else if(right!=-1&&Character.toString(s.toString().charAt(getSelectionStart()-1)).matches(Launges.Bracket2)){ // )<
-                                    s.setSpan(new BackgroundSpanMMC(),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    s.setSpan(new BackgroundSpanMMC(),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     pos--;
                                     bracket = getBracket(Character.toString(text.charAt(pos)));
                                 }else if(right!=-1&&Character.toString(s.toString().charAt(getSelectionStart())).matches(Launges.Bracket2)){ // >)
-                                    s.setSpan(new BackgroundSpanMMC(),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    s.setSpan(new BackgroundSpanMMC(),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     bracket = getBracket(Character.toString(text.charAt(pos)));
                                 }else if(getSelectionStart()!=0&&left!=-1&&Character.toString(s.toString().charAt(getSelectionStart()-1)).matches(Launges.Bracket1)){ // (<
-                                    s.setSpan(new BackgroundSpanMMC(),getSelectionStart()+left,getSelectionStart()+left+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    s.setSpan(new BackgroundSpanMMC(),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()+left,getSelectionStart()+left+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     pos--;
                                     bracket = getBracket(Character.toString(text.charAt(pos)));
                                 }else if(left!=-1&&Character.toString(s.toString().charAt(getSelectionStart())).matches(Launges.Bracket1)){ // >(
-                                    s.setSpan(new BackgroundSpanMMC(),getSelectionStart()+left,getSelectionStart()+left+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    s.setSpan(new BackgroundSpanMMC(),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()+left,getSelectionStart()+left+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     bracket = getBracket(Character.toString(text.charAt(pos)));
                                 }
                             }

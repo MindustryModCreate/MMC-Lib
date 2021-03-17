@@ -13,10 +13,10 @@ public class CursorSpanMMC extends ReplacementSpan {
     private int backgroundColor = 0;
     private int textColor = 0;
 
-    public CursorSpanMMC() {
+    public CursorSpanMMC(int text) {
         super();
         backgroundColor = Color.BLUE;
-        textColor = Color.BLACK;
+        textColor = text;
     }
 
     @Override

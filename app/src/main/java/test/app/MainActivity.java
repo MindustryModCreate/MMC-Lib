@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
         final EditTextMMC edit = findViewById(R.id.edit);
         this.setTitle("MMC TESTING");
         version.setText(MMC.version+"v");
-        
+        edit.setTextColor(0xffff0000);
         // Test
         b1.setOnClickListener(new View.OnClickListener(){
             @Override
