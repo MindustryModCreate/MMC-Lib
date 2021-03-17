@@ -43,14 +43,14 @@ public class MainActivity extends Activity {
         b1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View p1){
-                edit.setBracket(true,true);
+                edit.setBracket(true);
             }
         });
         
         b2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View p1){
-                edit.setBracket(false,false);
+                edit.setBracket(false);
             }
         });
         

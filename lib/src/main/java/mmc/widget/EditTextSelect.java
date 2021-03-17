@@ -25,10 +25,9 @@ import android.graphics.PorterDuff;
 
 public class EditTextSelect extends EditText {
     private boolean
-    bracket_visible1 = true,
-    bracket_visible2 = true;
+    bracket_visible = true;
     
-    private int color = 0xff000000;
+    public int color_text = 0xff000000,color_background = 0xff000000;
     
     private String
     t1 = "",
@@ -40,13 +39,12 @@ public class EditTextSelect extends EditText {
 
     @Override
     public void setTextColor(int color){
-        this.color = color;
+        this.color_text = color;
         super.setTextColor(color);
     }
     
-    public void setBracket(boolean b1,boolean b2){
-        bracket_visible1 = b1;
-        bracket_visible2 = b2;
+    public void setBracket(boolean b){
+        bracket_visible = b;
     }
     
     public interface onSelectListing{
@@ -108,7 +106,7 @@ public class EditTextSelect extends EditText {
                         String bracket = "";
                         int left = -1;
                         int right = -1;
-                        
+
                         try{
 
                             if(t1.matches(Launges.Bracket)){
@@ -132,37 +130,32 @@ public class EditTextSelect extends EditText {
 
                             removeSpans(s, CursorSpanMMC.class);
                             removeSpans(s, BackgroundSpanMMC.class);
-                            if(bracket_visible1){
-                                if(text.length()!=0&&getSelectionStart()!=text.length()){
-                                    s.setSpan(new CursorSpanMMC(color),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                }
-                            }
-                            if(bracket_visible2){
+                            if(bracket_visible){
                                 int pos = getSelectionStart();
                                 if(getSelectionStart()==text.length()){
                                     if(right!=-1&&Character.toString(s.toString().charAt(getSelectionStart()-1)).matches(Launges.Bracket2)){ // ) < на конце
-                                        s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                        s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                        s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                        s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                         pos--;
                                         bracket = getBracket(Character.toString(text.charAt(pos)));
                                     }
                                 }else if(right!=-1&&Character.toString(s.toString().charAt(getSelectionStart()-1)).matches(Launges.Bracket2)){ // )<
-                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     pos--;
                                     bracket = getBracket(Character.toString(text.charAt(pos)));
                                 }else if(right!=-1&&Character.toString(s.toString().charAt(getSelectionStart())).matches(Launges.Bracket2)){ // >)
-                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart()-right,getSelectionStart()-right+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     bracket = getBracket(Character.toString(text.charAt(pos)));
                                 }else if(getSelectionStart()!=0&&left!=-1&&Character.toString(s.toString().charAt(getSelectionStart()-1)).matches(Launges.Bracket1)){ // (<
-                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()+left,getSelectionStart()+left+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart()+left,getSelectionStart()+left+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart()-1,getSelectionStart(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     pos--;
                                     bracket = getBracket(Character.toString(text.charAt(pos)));
                                 }else if(left!=-1&&Character.toString(s.toString().charAt(getSelectionStart())).matches(Launges.Bracket1)){ // >(
-                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart()+left,getSelectionStart()+left+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                    s.setSpan(new BackgroundSpanMMC(color),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart()+left,getSelectionStart()+left+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    s.setSpan(new BackgroundSpanMMC(color_text,color_background,getTextSize()),getSelectionStart(),getSelectionStart()+1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     bracket = getBracket(Character.toString(text.charAt(pos)));
                                 }
                             }
@@ -173,7 +166,8 @@ public class EditTextSelect extends EditText {
                         onSelecting.getErrors(error);
                     }
                 }
-            });
+            }
+        );
     }
     private int checkBracket(String i,int level){
         switch(i){

@@ -11,11 +11,12 @@ public class BackgroundSpanMMC extends ReplacementSpan {
     private static int CORNER_RADIUS = 10;
     private int backgroundColor = 0;
     private int textColor = 0;
-
-    public BackgroundSpanMMC(int text) {
+    private float size = 5;
+    public BackgroundSpanMMC(int text,int background,float size) {
         //super();
-        backgroundColor = Color.GRAY;
-        textColor = text;
+        this.backgroundColor = background;
+        this.textColor = text;
+        this.size = size/2/2;
     }
 
     @Override
@@ -23,6 +24,7 @@ public class BackgroundSpanMMC extends ReplacementSpan {
         RectF rect = new RectF(x, top, x + measureText(paint, text, start, end), bottom);
         paint.setColor(backgroundColor);
         paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(size);
         canvas.drawRoundRect(rect, CORNER_RADIUS, CORNER_RADIUS, paint);
         paint.setColor(textColor);
         paint.setStyle(Paint.Style.FILL);
