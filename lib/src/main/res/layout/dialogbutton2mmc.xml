@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/lin"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/title"
+		android:text="Загаловок"
+		android:padding="8dp"
+		android:textColor="#000000"
+		android:textSize="16sp"/>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/message"
+		android:text="Текст"
+		android:padding="8dp"
+		android:layout_weight="1.0"/>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<TextView
+			android:id="@+id/ok"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@android:string/ok"
+			android:padding="8dp"
+			android:textColor="#000000"/>
+
+		<TextView
+			android:id="@+id/cancel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@android:string/cancel"
+			android:layout_alignParentRight="true"
+			android:padding="8dp"
+			android:textColor="#000000"/>
+
+	</RelativeLayout>
+
+</LinearLayout>
+

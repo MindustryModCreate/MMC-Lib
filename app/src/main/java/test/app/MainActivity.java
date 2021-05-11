@@ -25,6 +25,9 @@ import android.text.style.ForegroundColorSpan;
 import mmc.lib.*;
 import mmc.widget.*;
 import android.text.style.ImageSpan;
+import mmc.dialog.*;
+import android.widget.*;
+import android.app.*;
 
 public class MainActivity extends Activity {
     
@@ -54,6 +57,23 @@ public class MainActivity extends Activity {
             }
         });
         
+		new DialogButton2MMC(this,"Тестовое приложение",MMC.version+"v",
+			new DialogButton2MMC.OnDialog(){
+				@Override
+				public void ok(AlertDialog dialog){
+					Toast.makeText(getApplicationContext(),"Ок",Toast.LENGTH_SHORT).show();
+				}
+				@Override
+				public void close(AlertDialog dialog){
+					Toast.makeText(getApplicationContext(),"Закрыть",Toast.LENGTH_SHORT).show();
+				}
+				@Override
+				public void load(TextView ok, TextView close){
+					Toast.makeText(getApplicationContext(),"Диалог загружен",Toast.LENGTH_SHORT).show();
+				}
+			}
+		);
+		
         edit.setSelection(0);
         edit.setText("[..{..(0123456789)...(...(...)(...)...)..}..]");
         
