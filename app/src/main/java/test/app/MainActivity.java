@@ -57,19 +57,19 @@ public class MainActivity extends Activity {
             }
         });
         
-		new DialogButton2MMC(this,"Тестовое приложение",MMC.version+"v",
+		new DialogButton2MMC(this,"Тестовое приложение",MMC.version+"v","НЕТ","ОК",
 			new DialogButton2MMC.OnDialog(){
 				@Override
 				public void ok(AlertDialog dialog){
-					Toast.makeText(getApplicationContext(),"Ок",Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(),"ОК",Toast.LENGTH_SHORT).show();
 				}
 				@Override
 				public void close(AlertDialog dialog){
-					Toast.makeText(getApplicationContext(),"Закрыть",Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(),"НЕТ",Toast.LENGTH_SHORT).show();
 				}
 				@Override
 				public void load(TextView ok, TextView close){
-					Toast.makeText(getApplicationContext(),"Диалог загружен",Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(),"Диалог загружен...",Toast.LENGTH_SHORT).show();
 				}
 			}
 		);

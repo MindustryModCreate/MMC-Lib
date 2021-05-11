@@ -1,22 +1,19 @@
 package mmc.dialog;
 
-import android.view.*;
-import android.app.*;
-import android.content.*;
-import mmc.lib.R;
 import android.widget.*;
+import android.app.*;
+import android.view.*;
+import mmc.lib.R;
 
-public class DialogButton2MMC{
+public class DialogButton1MMC{
 	public interface OnDialog{
-		public void load(TextView ok, TextView close);
-		public void ok(AlertDialog dialog);
+		public void load(TextView close);
 		public void close(AlertDialog dialog);
 	}
-	
-	public DialogButton2MMC(Activity ctx,String title,String message,String close,String ok,final OnDialog d){
+
+	public DialogButton1MMC(Activity ctx,String title,String message,String close,final OnDialog d){
 		AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
-		final View customLayout = ctx.getLayoutInflater().inflate(R.layout.dialogbutton2mmc, null);
-		TextView OK = customLayout.findViewById(R.id.ok);
+		final View customLayout = ctx.getLayoutInflater().inflate(R.layout.dialogbutton1mmc, null);
 		TextView CLOSE = customLayout.findViewById(R.id.cancel);
 		TextView TITLE = customLayout.findViewById(R.id.title);
 		TextView MESSAGE = customLayout.findViewById(R.id.message);
@@ -26,11 +23,6 @@ public class DialogButton2MMC{
 			CLOSE.setText("NULL");
 		}else{
 			CLOSE.setText(close);
-		}
-		if(ok==null||ok==""){
-			OK.setText("NULL");
-		}else{
-			OK.setText(ok);
 		}
 		if(title==null||title==""){
 			TITLE.setVisibility(View.GONE);
@@ -42,15 +34,7 @@ public class DialogButton2MMC{
 		}else{
 			MESSAGE.setText(message);
 		}
-		d.load(OK,CLOSE);
-        OK.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					dialog.dismiss();
-					d.ok(dialog);
-				}
-			}
-		);
+		d.load(CLOSE);
 		CLOSE.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {

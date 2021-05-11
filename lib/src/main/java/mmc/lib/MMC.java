@@ -4,7 +4,7 @@ public class MMC {
     
 	/// MMC-Lib version
 	/// MMC-Lib версия
-    public static String version = "0.14.0";
+    public static String version = "0.14.1";
     
 	/// Color from int to String
 	/// Цвет из int в String
