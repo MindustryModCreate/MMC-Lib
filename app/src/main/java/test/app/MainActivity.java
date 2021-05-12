@@ -57,8 +57,8 @@ public class MainActivity extends Activity {
             }
         });
         
-		new DialogButton2MMC(this,"Тестовое приложение",MMC.version+"v","НЕТ","ОК",
-			new DialogButton2MMC.OnDialog(){
+		new DialogButton3MMC(this,"Тестовое приложение",MMC.version+"v","NO","YES","NEUTRAL",
+			new DialogButton3MMC.OnDialog(){
 				@Override
 				public void ok(AlertDialog dialog){
 					Toast.makeText(getApplicationContext(),"ОК",Toast.LENGTH_SHORT).show();
@@ -68,7 +68,11 @@ public class MainActivity extends Activity {
 					Toast.makeText(getApplicationContext(),"НЕТ",Toast.LENGTH_SHORT).show();
 				}
 				@Override
-				public void load(TextView ok, TextView close){
+				public void neutral(AlertDialog dialog){
+					Toast.makeText(getApplicationContext(),"Нейтральная",Toast.LENGTH_SHORT).show();
+				}
+				@Override
+				public void load(TextView ok, TextView close, TextView neutral){
 					Toast.makeText(getApplicationContext(),"Диалог загружен...",Toast.LENGTH_SHORT).show();
 				}
 			}
