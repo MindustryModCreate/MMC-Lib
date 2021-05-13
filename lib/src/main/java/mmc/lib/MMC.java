@@ -4,7 +4,7 @@ public class MMC {
     
 	/// MMC-Lib version
 	/// MMC-Lib версия
-    public static String version = "0.14.2";
+    public static String version = "0.14.3";
     
 	/// Color from int to String
 	/// Цвет из int в String
@@ -19,11 +19,4 @@ public class MMC {
 		/// mmc.lib.MMCUtil.java
 		return mmc.lib.MMCUtil.toColor(color);
 	}
-    
-    /* OFF
-    public static int toColor(int color1, int color2){
-        /// mmc.lib.MMCUtil.java
-        return mmc.lib.MMCUtil.toColor(color1,color2);
-	}
-    */
 }

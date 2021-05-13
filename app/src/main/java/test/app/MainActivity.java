@@ -72,7 +72,7 @@ public class MainActivity extends Activity {
 					Toast.makeText(getApplicationContext(),"Нейтральная",Toast.LENGTH_SHORT).show();
 				}
 				@Override
-				public void load(TextView ok, TextView close, TextView neutral){
+				public void load(TextViewMMC ok, TextViewMMC close, TextViewMMC neutral){
 					Toast.makeText(getApplicationContext(),"Диалог загружен...",Toast.LENGTH_SHORT).show();
 				}
 			}
