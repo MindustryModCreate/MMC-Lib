@@ -1,5 +1,4 @@
 package mmc.widget;
-import android.widget.EditText;
 import android.text.TextWatcher;
 import java.util.ArrayList;
 import android.graphics.Rect;
@@ -22,10 +21,11 @@ import android.text.style.ImageSpan;
 import android.text.Spannable;
 import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff;
+import android.text.*;
+import android.widget.*;
 
-public class EditTextSelect extends EditText {
-    private boolean
-    bracket_visible = true;
+public class EditTextSelect extends MultiAutoCompleteTextView {
+    private boolean bracket_visible = true;
     
     public int color_text = 0xff000000,color_background = 0xff000000;
     
@@ -36,7 +36,7 @@ public class EditTextSelect extends EditText {
     error = "";
     
     private ArrayList<onSelectListing> mSelecting = null;
-
+	
     @Override
     public void setTextColor(int color){
         this.color_text = color;
