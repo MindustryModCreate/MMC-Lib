@@ -102,10 +102,8 @@ public class EditTextMMC extends EditTextSelect {
             mListeners = null;
         }
     }
-	public void Editor(String patch,String i){
+	public void Editor(String patch){
 		h=patch;
-		size = Float.valueOf(i);
-		setTextSize(size);
 		launges = "";
 		if(patch.endsWith(".js")){launges = Launges.JavaScript;}
 		if(patch.endsWith(".json")){launges = Launges.Json;}
@@ -114,51 +112,40 @@ public class EditTextMMC extends EditTextSelect {
 		clearTextChangedListeners();
 	    addTextChangedListener(new TextWatcher() {
 				ColorScheme launges = new ColorScheme(
-					Pattern.compile(launge),
-					Color.RED
-				);
-				ColorScheme numbers = new ColorScheme(
-					Pattern.compile(Launges.Number),
-					Color.BLUE
-				);
-				ColorScheme brackets = new ColorScheme(
-					Pattern.compile(Launges.Bracket),
-					Color.GREEN
-				);
-				ColorScheme comments = new ColorScheme(
-					Pattern.compile(Launges.Comment),
-					Color.GRAY
-				);
-				ColorScheme colors = new ColorScheme(
-					Pattern.compile(Launges.Color),
-					Color.RED
-				);
-                ColorScheme js = new ColorScheme(
-                    Pattern.compile(Launges.JS),
+                    Pattern.compile(launge),
+                    0xff0071a5
+                );
+                ColorScheme numbers = new ColorScheme(
+                    Pattern.compile(Launges.Number),
+                    0xff8c004a
+                );
+                ColorScheme comments = new ColorScheme(
+                    Pattern.compile(Launges.Comment),
+                    Color.GRAY
+                );
+                ColorScheme colors = new ColorScheme(
+                    Pattern.compile(Launges.Color),
                     Color.RED
-				);
-				final ColorScheme[] schemes = { numbers, brackets, launges, comments, colors, js };
-				@Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-				@Override public void onTextChanged(CharSequence _param1, int _param2, int _param3, int _param4) {
-					final String _charSeq = _param1.toString();
-					FileUtil.writeFile(h, _charSeq);
-				}
+                );
+				ColorScheme quotes = new ColorScheme(
+					Pattern.compile(Launges.Quote),
+					0xff609a00
+                );
+				final ColorScheme[] schemes = { numbers, launges, quotes, colors, comments };
+                @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+				@Override public void onTextChanged(CharSequence _param1, int _param2, int _param3, int _param4) {}
 				@Override public void afterTextChanged(Editable s) {
 					removeSpans(s, ForegroundColorSpan.class);
 					removeSpans(s, UnderlineSpan.class);
 					for (ColorScheme scheme : schemes) {
 						for(Matcher m = scheme.pattern.matcher(s); m.find();) {
-                            if(!String.valueOf(scheme.pattern).equals(Launges.JS)){
-							if(!String.valueOf(scheme.pattern).equals(Launges.Color)){
-								s.setSpan(new ForegroundColorSpan(scheme.color),m.start(),m.end(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-							}else{
-								String color = m.group().toString().replace("\"","").replace("[","").replace("]","");
-								s.setSpan(new ForegroundColorSpan(Color.parseColor(color)),m.start(),m.end(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-								UnderlineSpan underline = new UnderlineSpan();
-								s.setSpan(underline, m.start(), m.end(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-							}
+                            if(!String.valueOf(scheme.pattern).equals(Launges.Color)){
+                                s.setSpan(new ForegroundColorSpan(scheme.color),m.start(),m.end(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             }else{
-                                s.setSpan(new ForegroundColorSpan(scheme.color),m.start(2),m.end(2),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                String color = m.group().toString().replace("\"","").replace("[","").replace("]","");
+                                s.setSpan(new ForegroundColorSpan(Color.parseColor(color)),m.start(),m.end(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                UnderlineSpan underline = new UnderlineSpan();
+                                s.setSpan(underline, m.start(), m.end(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                             }
 						}
 					}
@@ -167,15 +154,18 @@ public class EditTextMMC extends EditTextSelect {
 					CharacterStyle[] spans = e.getSpans(0, e.length(), type);
 					for (CharacterStyle span : spans) {
 						e.removeSpan(span);
-					}}
+					}
+				}
 				class ColorScheme {
 					final Pattern pattern;
 					final int color;
 					ColorScheme(Pattern pattern, int color) {
 						this.pattern = pattern;
 						this.color = color;
-					}}});
-		setText(FileUtil.readFile(patch));
+					}
+				}
+			}
+		);
 	}
     @Override
     protected void onDraw(Canvas canvas) {
